@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="之前做项目的过程中也遇到过类似于模态框的使用和实现，当时的实现很是笨拙，两个div，通过监听点击按钮改变css样式来控制显示与隐藏，有时候会被自己搞乱，今天发现了Bootstrap中现有的模态框Modal插件，很实用，分享给大家～～  直接上代码：1234567891011121314151617181920212223242526272829303132333435363738394041424">
+<meta name="description" content="Bootstrap的Modal（模态框）插件如何使用及讲解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bootstrap的Modal（模态框）插件">
 <meta property="og:url" content="http://yoursite.com/2017/07/29/Bootstrap的Modal（模态框）插件/index.html">
 <meta property="og:site_name" content="7天苹果的博客">
-<meta property="og:description" content="之前做项目的过程中也遇到过类似于模态框的使用和实现，当时的实现很是笨拙，两个div，通过监听点击按钮改变css样式来控制显示与隐藏，有时候会被自己搞乱，今天发现了Bootstrap中现有的模态框Modal插件，很实用，分享给大家～～  直接上代码：1234567891011121314151617181920212223242526272829303132333435363738394041424">
+<meta property="og:description" content="Bootstrap的Modal（模态框）插件如何使用及讲解">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1281633-f3b80a44060177b6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-29T01:09:16.023Z">
+<meta property="og:updated_time" content="2017-07-29T01:33:24.887Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bootstrap的Modal（模态框）插件">
-<meta name="twitter:description" content="之前做项目的过程中也遇到过类似于模态框的使用和实现，当时的实现很是笨拙，两个div，通过监听点击按钮改变css样式来控制显示与隐藏，有时候会被自己搞乱，今天发现了Bootstrap中现有的模态框Modal插件，很实用，分享给大家～～  直接上代码：1234567891011121314151617181920212223242526272829303132333435363738394041424">
+<meta name="twitter:description" content="Bootstrap的Modal（模态框）插件如何使用及讲解">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1281633-f3b80a44060177b6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -322,7 +322,8 @@
       
 
       
-        <p>之前做项目的过程中也遇到过类似于模态框的使用和实现，当时的实现很是笨拙，两个div，通过监听点击按钮改变css样式来控制显示与隐藏，有时候会被自己搞乱，今天发现了Bootstrap中现有的模态框Modal插件，很实用，分享给大家～～</p>
+        <p>Bootstrap的Modal（模态框）插件如何使用及讲解<br><a id="more"></a></p>
+<p>之前做项目的过程中也遇到过类似于模态框的使用和实现，当时的实现很是笨拙，两个div，通过监听点击按钮改变css样式来控制显示与隐藏，有时候会被自己搞乱，今天发现了Bootstrap中现有的模态框Modal插件，很实用，分享给大家～～</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1281633-f3b80a44060177b6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>直接上代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</div><div class="line">  &lt;title&gt;JS Bin&lt;/title&gt;</div><div class="line">  &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;  </div><div class="line">  </div><div class="line">  &lt;!-- 可选的Bootstrap主题文件（一般不用引入） --&gt;  </div><div class="line">  &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;  </div><div class="line">  </div><div class="line">  &lt;!-- jQuery文件。务必在bootstrap.min.js 之前引入 --&gt;  </div><div class="line">  &lt;script src=&quot;//cdn.bootcss.com/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;  </div><div class="line">  </div><div class="line">  &lt;!-- 最新的 Bootstrap 核心 JavaScript 文件 --&gt;  </div><div class="line">  &lt;script src=&quot;//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;  </div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;h2&gt;创建模态框（Modal）&lt;/h2&gt;</div><div class="line">&lt;!-- 按钮触发模态框 --&gt;</div><div class="line">&lt;button class=&quot;btn btn-primary btn-lg&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal&quot;&gt;</div><div class="line">    开始演示模态框</div><div class="line">&lt;/button&gt;</div><div class="line">&lt;!-- 模态框（Modal） --&gt;</div><div class="line">&lt;div class=&quot;modal fade&quot; id=&quot;myModal&quot; aria-hidden=&quot;true&quot;&gt;    /*fade渐变*/</div><div class="line">    &lt;div class=&quot;modal-dialog&quot;&gt;</div><div class="line">        &lt;div class=&quot;modal-content&quot;&gt;</div><div class="line">            &lt;div class=&quot;modal-header&quot;&gt;</div><div class="line">                &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot;&gt; </div><div class="line">                    &amp;timer;  /*data-dismiss属性*/</div><div class="line">                &lt;/button&gt;</div><div class="line">                &lt;h4 class=&quot;modal-title&quot;&gt;</div><div class="line">                    模态框（Modal）标题</div><div class="line">                &lt;/h4&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">            &lt;div class=&quot;modal-body&quot;&gt;</div><div class="line">                在这里添加一些文本</div><div class="line">            &lt;/div&gt;</div><div class="line">            &lt;div class=&quot;modal-footer&quot;&gt;</div><div class="line">                &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;关闭</div><div class="line">                &lt;/button&gt;</div><div class="line">                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;</div><div class="line">                    提交更改</div><div class="line">                &lt;/button&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/div&gt;&lt;!-- /.modal-content --&gt;</div><div class="line">    &lt;/div&gt;&lt;!-- /.modal --&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <h4 id="代码讲解："><a href="#代码讲解：" class="headerlink" title="代码讲解："></a>代码讲解：</h4><ul>
@@ -382,6 +383,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/29/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
