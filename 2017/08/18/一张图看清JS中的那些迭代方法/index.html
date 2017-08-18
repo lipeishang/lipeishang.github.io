@@ -93,19 +93,19 @@
 
 
 
-<meta name="description" content="本篇是关于Bootstrap的Modal（模态框）插件如何使用及讲解">
+<meta name="description" content="本篇介绍了关于JavaScript中的迭代方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bootstrap的Modal（模态框）插件">
-<meta property="og:url" content="http://yoursite.com/2017/07/29/Bootstrap的Modal（模态框）插件/index.html">
+<meta property="og:title" content="一张图看清JS中的那些迭代方法">
+<meta property="og:url" content="http://yoursite.com/2017/08/18/一张图看清JS中的那些迭代方法/index.html">
 <meta property="og:site_name" content="7天苹果的博客">
-<meta property="og:description" content="本篇是关于Bootstrap的Modal（模态框）插件如何使用及讲解">
+<meta property="og:description" content="本篇介绍了关于JavaScript中的迭代方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1281633-f3b80a44060177b6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-29T02:00:12.539Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1281633-b4be174ef8b2d138.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-18T06:51:37.043Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bootstrap的Modal（模态框）插件">
-<meta name="twitter:description" content="本篇是关于Bootstrap的Modal（模态框）插件如何使用及讲解">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1281633-f3b80a44060177b6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="一张图看清JS中的那些迭代方法">
+<meta name="twitter:description" content="本篇介绍了关于JavaScript中的迭代方法">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1281633-b4be174ef8b2d138.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/29/Bootstrap的Modal（模态框）插件/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/18/一张图看清JS中的那些迭代方法/"/>
 
 
 
 
 
-  <title>Bootstrap的Modal（模态框）插件 | 7天苹果的博客</title>
+  <title>一张图看清JS中的那些迭代方法 | 7天苹果的博客</title>
   
 
 
@@ -258,7 +258,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/Bootstrap的Modal（模态框）插件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/一张图看清JS中的那些迭代方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="西瓜">
@@ -275,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Bootstrap的Modal（模态框）插件</h1>
+          <h1 class="post-title" itemprop="name headline">一张图看清JS中的那些迭代方法</h1>
         
 
         <div class="post-meta">
@@ -287,8 +287,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T09:07:14+08:00">
-                2017-07-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-18T14:50:09+08:00">
+                2017-08-18
               </time>
             
 
@@ -327,22 +327,49 @@
       
 
       
-        <p>本篇是关于Bootstrap的Modal（模态框）插件如何使用及讲解<br><a id="more"></a></p>
-<p>之前做项目的过程中也遇到过类似于模态框的使用和实现，当时的实现很是笨拙，两个div，通过监听点击按钮改变css样式来控制显示与隐藏，有时候会被自己搞乱，今天发现了Bootstrap中现有的模态框Modal插件，很实用，分享给大家～～</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1281633-f3b80a44060177b6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h4 id="使用实例："><a href="#使用实例：" class="headerlink" title="使用实例："></a>使用实例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</div><div class="line">  &lt;title&gt;JS Bin&lt;/title&gt;</div><div class="line">  &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;  </div><div class="line">  </div><div class="line">  &lt;!-- 可选的Bootstrap主题文件（一般不用引入） --&gt;  </div><div class="line">  &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;  </div><div class="line">  </div><div class="line">  &lt;!-- jQuery文件。务必在bootstrap.min.js 之前引入 --&gt;  </div><div class="line">  &lt;script src=&quot;//cdn.bootcss.com/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;  </div><div class="line">  </div><div class="line">  &lt;!-- 最新的 Bootstrap 核心 JavaScript 文件 --&gt;  </div><div class="line">  &lt;script src=&quot;//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;  </div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;h2&gt;创建模态框（Modal）&lt;/h2&gt;</div><div class="line">&lt;!-- 按钮触发模态框 --&gt;</div><div class="line">&lt;button class=&quot;btn btn-primary btn-lg&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal&quot;&gt;</div><div class="line">    开始演示模态框</div><div class="line">&lt;/button&gt;</div><div class="line">&lt;!-- 模态框（Modal） --&gt;</div><div class="line">&lt;div class=&quot;modal fade&quot; id=&quot;myModal&quot; aria-hidden=&quot;true&quot;&gt;    /*fade渐变*/</div><div class="line">    &lt;div class=&quot;modal-dialog&quot;&gt;</div><div class="line">        &lt;div class=&quot;modal-content&quot;&gt;</div><div class="line">            &lt;div class=&quot;modal-header&quot;&gt;</div><div class="line">                &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot;&gt; </div><div class="line">                    &amp;timer;  /*data-dismiss属性*/</div><div class="line">                &lt;/button&gt;</div><div class="line">                &lt;h4 class=&quot;modal-title&quot;&gt;</div><div class="line">                    模态框（Modal）标题</div><div class="line">                &lt;/h4&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">            &lt;div class=&quot;modal-body&quot;&gt;</div><div class="line">                在这里添加一些文本</div><div class="line">            &lt;/div&gt;</div><div class="line">            &lt;div class=&quot;modal-footer&quot;&gt;</div><div class="line">                &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;关闭</div><div class="line">                &lt;/button&gt;</div><div class="line">                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;</div><div class="line">                    提交更改</div><div class="line">                &lt;/button&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/div&gt;&lt;!-- /.modal-content --&gt;</div><div class="line">    &lt;/div&gt;&lt;!-- /.modal --&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h4 id="代码讲解："><a href="#代码讲解：" class="headerlink" title="代码讲解："></a>代码讲解：</h4><ul>
-<li>使用模态窗口，需要有某种触发器。可以使用按钮或链接。这里我们使用的是按钮。</li>
-<li>如果仔细查看上面的代码，你会发现在 <code>&lt;button&gt;</code> 标签中，data-target=”#myModal” 是你想要在页面上加载的模态框的目标。可以在页面上创建多个模态框，然后为每个模态框创建不同的触发器。现在，很明显，你不能在同一时间加载多个模块，但可以在页面上创建多个在不同时间进行加载。</li>
-<li>在模态框中需要注意两点：<br>（1）第一是 .modal，用来把 <code>&lt;div&gt;</code>的内容识别为模态框。<br>（2）第二是 .fade class。当模态框被切换时，它会引起内容淡入淡出。</li>
-<li>属性 <code>aria-hidden=&quot;true&quot;</code>用于保持模态窗口不可见，直到触发器被触发为止（比如点击在相关的按钮上）。</li>
-<li><code>&lt;div class=&quot;modal-header&quot;&gt;</code>，modal-header 是为模态窗口的头部定义样式的类。</li>
-<li><code>class=&quot;close&quot;</code>，close 是一个 CSS class，用于为模态窗口的关闭按钮设置样式。</li>
-<li><code>data-dismiss=&quot;modal&quot;</code>，是一个自定义的 HTML5 data 属性。在这里它被用于关闭模态窗口。</li>
-<li><code>class=&quot;modal-body&quot;</code>，是 Bootstrap CSS 的一个 CSS class，用于为模态窗口的主体设置样式。</li>
-<li><code>class=&quot;modal-footer&quot;</code>，是 Bootstrap CSS 的一个 CSS class，用于为模态窗口的底部设置样式。</li>
-<li><code>data-toggle=&quot;modal&quot;</code>，HTML5 自定义的 data 属性 data-toggle 用于打开模态窗口。</li>
+        <p>本篇介绍了关于JavaScript中的迭代方法<br><a id="more"></a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1281633-b4be174ef8b2d138.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="JS中的那些迭代方法"></p>
+<h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4><p>1、forEach循环的缺点：</p>
+<ul>
+<li>不能中断循环（不能使用break或return）</li>
+<li>如果要引用数组或集合的索引，forEach无法做到</li>
 </ul>
+<p>2、for-in循环</p>
+<p>for-in循环实际是为循环”enumerable“对象而设计的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;a:1, b:2, c:3&#125;; </div><div class="line">for (var prop in obj) &#123;</div><div class="line">   console.log(&quot;obj.&quot; + prop + &quot; = &quot; + obj[prop]);</div><div class="line">&#125;</div><div class="line">// 输出:// &quot;obj.a = 1&quot;// &quot;obj.b = 2&quot;// &quot;obj.c = 3&quot;</div></pre></td></tr></table></figure></p>
+<p>你也可以用它来循环一个数组：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var index in myArray) &#123; </div><div class="line">// 不推荐这样 console.log(myArray[index]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>不推荐用for-in来循环一个数组，因为，不像对象，数组的index跟普通的对象属性不一样，是重要的数值序列指标。</p>
+<p>3、for-of循环</p>
+<p>JavaScript6里引入了一种新的循环方法，它就是for-of循环，它既比传统的for循环简洁，同时弥补了forEach和for-in循环的短板。<br>我们看一下它的for-of的语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var value of myArray) &#123; </div><div class="line">console.log(value);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>for-of的语法看起来跟for-in很相似，但它的功能却丰富的多，它能循环很多东西。</p>
+<p><strong>for-of循环使用例子：</strong></p>
+<ul>
+<li><p>循环一个数组(Array):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let iterable = [10, 20, 30];</div><div class="line">for (const value of iterable) &#123; </div><div class="line">  console.log(value);</div><div class="line">&#125;// 10// 20// 30</div></pre></td></tr></table></figure>
+</li>
+<li><p>循环一个字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let iterable = &quot;boo&quot;;</div><div class="line">  for (let value of iterable) &#123; </div><div class="line">    console.log(value);</div><div class="line">&#125;// &quot;b&quot;// &quot;o&quot;// &quot;o&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>循环一个类型化的数组(TypedArray)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let iterable = new Uint8Array([0x00, 0xff]);</div><div class="line">    for (let value of iterable) &#123;</div><div class="line">       console.log(value);</div><div class="line">&#125;// 0// 255</div></pre></td></tr></table></figure>
+</li>
+<li><p>循环一个Map</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let iterable = new Map([[&quot;a&quot;, 1], [&quot;b&quot;, 2], [&quot;c&quot;, 3]]);</div><div class="line">    for (let [key, value] of iterable) &#123; </div><div class="line">        console.log(value);</div><div class="line">&#125;// 1// 2// 3</div><div class="line">     for (let entry of iterable) &#123; </div><div class="line">        console.log(entry);</div><div class="line">&#125;// [a, 1]// [b, 2]// [c, 3]</div></pre></td></tr></table></figure>
+</li>
+<li><p>循环一个 Set</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let iterable = new Set([1, 1, 2, 2, 3, 3]);</div><div class="line">    for (let value of iterable) &#123; </div><div class="line">        console.log(value);</div><div class="line">&#125;// 1// 2// 3</div></pre></td></tr></table></figure>
+</li>
+<li><p>循环一个 DOM collection</p>
+</li>
+</ul>
+<p>循环一个DOM collections，比如NodeList，之前我们讨论过如何循环一个NodeList，现在方便了，可以直接使用for-of循环：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let articleParagraphs = document.querySelectorAll(&quot;article &gt; p&quot;);</div><div class="line">  for (let paragraph of articleParagraphs) &#123; </div><div class="line">      paragraph.classList.add(&quot;read&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>循环一个拥有enumerable属性的对象</li>
+</ul>
+<p>for–of循环并不能直接使用在普通的对象上，但如果我们按对象所拥有的属性进行循环，可使用内置的Object.keys()方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var key of Object.keys(someObject)) &#123; </div><div class="line">      console.log(key + &quot;: &quot; + someObject[key]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>循环一个生成器(generators)</li>
+</ul>
+<p>我们可循环一个生成器(generators):<br>```<br>function* fibonacci() { // a generator function<br>    let [prev, curr] = [0, 1];<br>    while (true) {<br>        [prev, curr] = [curr, prev + curr];<br>        yield curr;<br>    }<br>}<br>for (let n of fibonacci()) {<br>    console.log(n);<br> // truncate the sequence at 1000<br>if (n &gt;= 1000) {<br>  break;<br> }<br>}</p>
 
       
     </div>
@@ -379,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/29/关于js闭包结合定时器的一个题目/" rel="next" title="关于js闭包结合定时器的一个题目">
-                <i class="fa fa-chevron-left"></i> 关于js闭包结合定时器的一个题目
+              <a href="/2017/08/14/填坑笔记—Nodejs获取form-data数据/" rel="next" title="填坑笔记—Nodejs获取form-data数据">
+                <i class="fa fa-chevron-left"></i> 填坑笔记—Nodejs获取form-data数据
               </a>
             
           </div>
@@ -388,10 +415,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/29/JavaScript面向对象/" rel="prev" title="关于JavaScript对象">
-                关于JavaScript对象 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -503,7 +526,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用实例："><span class="nav-number">1.</span> <span class="nav-text">使用实例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码讲解："><span class="nav-number">2.</span> <span class="nav-text">代码讲解：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#补充："><span class="nav-number">1.</span> <span class="nav-text">补充：</span></a></li></ol></div>
             
 
           </div>
