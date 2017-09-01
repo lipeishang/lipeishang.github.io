@@ -102,7 +102,7 @@
 <meta property="og:description" content="本篇是关于不依赖服务器的前端路由">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1281633-7f9a219450dca266.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-01T11:23:27.922Z">
+<meta property="og:updated_time" content="2017-09-01T11:26:35.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="说一说不依赖服务器的前端路由">
 <meta name="twitter:description" content="本篇是关于不依赖服务器的前端路由">
@@ -361,9 +361,9 @@
 
       
         <p>本篇是关于不依赖服务器的前端路由<br><a id="more"></a></p>
-<h4 id="什么是前端路由？"><a href="#什么是前端路由？" class="headerlink" title="什么是前端路由？"></a>什么是前端路由？</h4><p>所谓的前端路由，拥有这样一种能力：客户端浏览器可以不依赖服务端，根据不同的URL渲染不同的视图页面。</p>
-<h4 id="为什么要有前端路由？"><a href="#为什么要有前端路由？" class="headerlink" title="为什么要有前端路由？"></a>为什么要有前端路由？</h4><p>首先，它的出现无疑减轻了服务器端的压力。特别是对于一个比较复杂的应用来讲，或者更确切的说，对于拥有一个复杂路由系统的应用来说，服务器端需要为每一个不同的url执行一段处理逻辑在高并发的情况下实在有点不堪重负；其次，页面的切换可以不需要刷新整个页面了，没有网络延迟，没有闪烁刷新，提升了用户体验。</p>
-<h4 id="前端路由实现方式"><a href="#前端路由实现方式" class="headerlink" title="前端路由实现方式"></a>前端路由实现方式</h4><p>首先我们知道了前端路由是不依赖服务器的，所以我们在前端需要做的就是：</p>
+<h3 id="什么是前端路由？"><a href="#什么是前端路由？" class="headerlink" title="什么是前端路由？"></a>什么是前端路由？</h3><p>所谓的前端路由，拥有这样一种能力：客户端浏览器可以不依赖服务端，根据不同的URL渲染不同的视图页面。</p>
+<h3 id="为什么要有前端路由？"><a href="#为什么要有前端路由？" class="headerlink" title="为什么要有前端路由？"></a>为什么要有前端路由？</h3><p>首先，它的出现无疑减轻了服务器端的压力。特别是对于一个比较复杂的应用来讲，或者更确切的说，对于拥有一个复杂路由系统的应用来说，服务器端需要为每一个不同的url执行一段处理逻辑在高并发的情况下实在有点不堪重负；其次，页面的切换可以不需要刷新整个页面了，没有网络延迟，没有闪烁刷新，提升了用户体验。</p>
+<h3 id="前端路由实现方式"><a href="#前端路由实现方式" class="headerlink" title="前端路由实现方式"></a>前端路由实现方式</h3><p>首先我们知道了前端路由是不依赖服务器的，所以我们在前端需要做的就是：</p>
 <ul>
 <li>在不改变页面的前提下实现url的变化</li>
 <li>捕捉到url的变化以便执行页面替换</li>
@@ -405,7 +405,7 @@
 <p>调用 history.pushState() 或者 history.replaceState() 不会触发 popstate 事件。popstate 事件只会在浏览器某些行为下触发, 比如点击后退按钮（或者在JavaScript中调用 history.back() 方法）。</p>
 </blockquote>
 <p>这也就是说，我们在使用history API改变浏览器的url时，仍需要额外的步骤去触发 popstate 事件，例如调用 history.back() 会 history.forward() 等方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">window.onpopstate = function(event) &#123;</div><div class="line">  alert(&quot;location: &quot; + document.location + &quot;, state: &quot; + JSON.stringify(event.state));</div><div class="line">&#125;;</div><div class="line">history.pushState(&#123;page: 1&#125;, &quot;title 1&quot;, &quot;?page=1&quot;);</div><div class="line">history.pushState(&#123;page: 2&#125;, &quot;title 2&quot;, &quot;?page=2&quot;);</div><div class="line">history.replaceState(&#123;page: 3&#125;, &quot;title 3&quot;, &quot;?page=3&quot;);</div><div class="line">history.back(); // alerts &quot;location: http://example.com/example.html?page=1, state: &#123;&quot;page&quot;:1&#125;&quot;</div><div class="line">history.back(); // alerts &quot;location: http://example.com/example.html, state: null</div><div class="line">history.go(2);  // alerts &quot;location: http://example.com/example.html?page=3, state: &#123;&quot;page&quot;:3&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="不存在纯前端路由"><a href="#不存在纯前端路由" class="headerlink" title="不存在纯前端路由"></a>不存在纯前端路由</h4><p>我们此前所描述的前端路由，建立在已经打开了一个初始页面基础之上，然后在这个页面之内进行页面替换。然而，我们如何进入这个初始页面？仅靠前端路由肯定是力所不及。我们至少要向后端发送一次http请求，接收所需要加载的页面不是吗？</p>
+<h3 id="不存在纯前端路由"><a href="#不存在纯前端路由" class="headerlink" title="不存在纯前端路由"></a>不存在纯前端路由</h3><p>我们此前所描述的前端路由，建立在已经打开了一个初始页面基础之上，然后在这个页面之内进行页面替换。然而，我们如何进入这个初始页面？仅靠前端路由肯定是力所不及。我们至少要向后端发送一次http请求，接收所需要加载的页面不是吗？</p>
 <p>所以，我们并不能抛弃后端路由部分。这也意味着，我们需要和后端确认各自的分工，哪些url归前端解析，哪些归后台解析。</p>
 
       
@@ -609,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是前端路由？"><span class="nav-number">1.</span> <span class="nav-text">什么是前端路由？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要有前端路由？"><span class="nav-number">2.</span> <span class="nav-text">为什么要有前端路由？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端路由实现方式"><span class="nav-number">3.</span> <span class="nav-text">前端路由实现方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hash方式"><span class="nav-number">4.</span> <span class="nav-text">hash方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history-API"><span class="nav-number">5.</span> <span class="nav-text">history API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不存在纯前端路由"><span class="nav-number">6.</span> <span class="nav-text">不存在纯前端路由</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是前端路由？"><span class="nav-number">1.</span> <span class="nav-text">什么是前端路由？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要有前端路由？"><span class="nav-number">2.</span> <span class="nav-text">为什么要有前端路由？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端路由实现方式"><span class="nav-number">3.</span> <span class="nav-text">前端路由实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hash方式"><span class="nav-number">3.1.</span> <span class="nav-text">hash方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history-API"><span class="nav-number">3.2.</span> <span class="nav-text">history API</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不存在纯前端路由"><span class="nav-number">4.</span> <span class="nav-text">不存在纯前端路由</span></a></li></ol></div>
             
 
           </div>
