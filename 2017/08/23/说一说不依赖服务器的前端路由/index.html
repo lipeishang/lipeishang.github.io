@@ -101,10 +101,12 @@
 <meta property="og:site_name" content="7天苹果的博客">
 <meta property="og:description" content="本篇是关于不依赖服务器的前端路由">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-01T11:18:51.785Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1281633-7f9a219450dca266.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-01T11:23:27.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="说一说不依赖服务器的前端路由">
 <meta name="twitter:description" content="本篇是关于不依赖服务器的前端路由">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1281633-7f9a219450dca266.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -376,7 +378,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//https://www.nowcoder.com/discuss/33880?type=2&amp;order=0&amp;pos=57&amp;page=1</div><div class="line">console.log(location.hash);    //&apos;&apos;</div></pre></td></tr></table></figure>
 <p><strong>接下来</strong>，输入 location.hash = ‘123’，会发现浏览器地址栏的url变了，末尾增加了’#123’字段，并且，页面没有被重新刷新。很显然，这很符合我们的要求。</p>
 <h4 id="history-API"><a href="#history-API" class="headerlink" title="history API"></a>history API</h4><p>html5引入了一个history对象，包含了一套访问浏览器历史的api，可以通过window.history访问到它。</p>
-<p>这里我们要用的是它的两个api方法：<figure class="highlight plain"><figcaption><span>和 ```replaceState```。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">history.replaceState(dataObj, title, url);</div><div class="line">history.pushState(dataObj, title, url);</div></pre></td></tr></table></figure></p>
+<p>这里我们要用的是它的两个api方法：pushState 和 replaceState。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">history.replaceState(dataObj, title, url);</div><div class="line">history.pushState(dataObj, title, url);</div></pre></td></tr></table></figure></p>
 <p>若上所示，它们接收完全相同的参数，都是对浏览器的历史栈进行操作，将传递的url和相关数据压栈，并将浏览器地址栏的url替换成传入的url且不刷新页面。</p>
 <p>这两个 API 都接收三个参数，分别是：</p>
 <ul>
@@ -385,11 +387,24 @@
 <li>地址（URL） — 新的历史记录条目的地址。浏览器不会在调用pushState()方法后加载该地址，但之后，可能会试图加载，例如用户重启浏览器。新的URL不一定是绝对路径；如果是相对路径，它将以当前URL为基准；传入的URL与当前URL应该是同源的，否则，pushState()会抛出异常。该参数是可选的；不指定的话则为文档当前URL。<br>相同之处是两个 API 都会操作浏览器的历史记录，而不会引起页面的刷新。</li>
 </ul>
 <p><strong>不同之处在于，pushState会增加一条新的历史记录，而replaceState则会替换当前的历史记录。</strong></p>
-<p>以<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">控制台输入</div></pre></td></tr></table></figure></p>
-<p>window.history.pushState(null, null, “<a href="https://www.baidu.com/?name=orange" target="_blank" rel="external">https://www.baidu.com/?name=orange</a>“);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">于是我们的url变成了</div><div class="line"></div><div class="line">![url](http://upload-images.jianshu.io/upload_images/1281633-7f9a219450dca266.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line">并且页面并没有刷新，只是url栏发生了变化。</div><div class="line"> </div><div class="line">&gt; 注意:这里的 url 不支持跨域，当我们把 www.baidu.com 换成 baidu.com 时就会报错。</div><div class="line"></div><div class="line">到此我们在不改变页面的前提下实现了url的变化。</div><div class="line">***</div><div class="line">**那么如何捕捉url的变化进行页面的替换呢？**</div><div class="line"></div><div class="line">对于hash方式的前端路由，通常可以监听 [hashchange](https://link.juejin.im/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FEvents%2Fhashchange) 事件，在事件回调中处理相应的页面视图展示等逻辑。</div></pre></td></tr></table></figure></p>
-<p> <script><br>        function change() {<br>            alert(“ok!”);<br>        }<br>    </script><br></p>
-<p><body onhashchange="change()"><br></body><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">在浏览器输入```location.hash = &quot;123&quot;```，即弹出“ok！”</div><div class="line"></div><div class="line">此外，html5提供的 [popstate](https://link.juejin.im/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FAPI%2FWindow%2Fonpopstate) 事件也会在url的hash发生改变时触发。也就是说如果可以忽略低版本浏览器，我们使用hash方式路由时也可以采用监听这个事件进行回调处理。</div><div class="line"></div><div class="line">**那么，如果是采用history API的形式呢？**根据MDN的描述：</div><div class="line"></div><div class="line">&gt; 调用 history.pushState() 或者 history.replaceState() 不会触发 popstate 事件。popstate 事件只会在浏览器某些行为下触发, 比如点击后退按钮（或者在JavaScript中调用 history.back() 方法）。</div><div class="line"></div><div class="line">这也就是说，我们在使用history API改变浏览器的url时，仍需要额外的步骤去触发 popstate 事件，例如调用 history.back() 会 history.forward() 等方法。</div></pre></td></tr></table></figure></p>
-<p>window.onpopstate = function(event) {<br>  alert(“location: “ + document.location + “, state: “ + JSON.stringify(event.state));<br>};<br>history.pushState({page: 1}, “title 1”, “?page=1”);<br>history.pushState({page: 2}, “title 2”, “?page=2”);<br>history.replaceState({page: 3}, “title 3”, “?page=3”);<br>history.back(); // alerts “location: <a href="http://example.com/example.html?page=1" target="_blank" rel="external">http://example.com/example.html?page=1</a>, state: {“page”:1}”<br>history.back(); // alerts “location: <a href="http://example.com/example.html" target="_blank" rel="external">http://example.com/example.html</a>, state: null<br>history.go(2);  // alerts “location: <a href="http://example.com/example.html?page=3" target="_blank" rel="external">http://example.com/example.html?page=3</a>, state: {“page”:3}<br>```</p>
+<p>以<a href="https://www.baidu.com/为例：" target="_blank" rel="external">https://www.baidu.com/为例：</a><br>控制台输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.history.pushState(null, null, &quot;https://www.baidu.com/?name=orange&quot;);</div></pre></td></tr></table></figure></p>
+<p>于是我们的url变成了</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1281633-7f9a219450dca266.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="url"><br>并且页面并没有刷新，只是url栏发生了变化。</p>
+<blockquote>
+<p>注意:这里的 url 不支持跨域，当我们把 www.baidu.com 换成 baidu.com 时就会报错。</p>
+</blockquote>
+<p>到此我们在不改变页面的前提下实现了url的变化。</p>
+<hr>
+<p><strong>那么如何捕捉url的变化进行页面的替换呢？</strong></p>
+<p>对于hash方式的前端路由，通常可以监听 <a href="https://link.juejin.im/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FEvents%2Fhashchange" target="_blank" rel="external">hashchange</a> 事件，在事件回调中处理相应的页面视图展示等逻辑。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> &lt;script&gt;</div><div class="line">        function change() &#123;</div><div class="line">            alert(&quot;ok!&quot;);</div><div class="line">        &#125;</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body onhashchange=&quot;change()&quot;&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+<p>在浏览器输入location.hash = “123”,即弹出“ok！”</p>
+<p>此外，html5提供的 <a href="https://link.juejin.im/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FAPI%2FWindow%2Fonpopstate" target="_blank" rel="external">popstate</a> 事件也会在url的hash发生改变时触发。也就是说如果可以忽略低版本浏览器，我们使用hash方式路由时也可以采用监听这个事件进行回调处理。</p>
+<p><strong>那么，如果是采用history API的形式呢？</strong>根据MDN的描述：</p>
+<blockquote>
+<p>调用 history.pushState() 或者 history.replaceState() 不会触发 popstate 事件。popstate 事件只会在浏览器某些行为下触发, 比如点击后退按钮（或者在JavaScript中调用 history.back() 方法）。</p>
+</blockquote>
+<p>这也就是说，我们在使用history API改变浏览器的url时，仍需要额外的步骤去触发 popstate 事件，例如调用 history.back() 会 history.forward() 等方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">window.onpopstate = function(event) &#123;</div><div class="line">  alert(&quot;location: &quot; + document.location + &quot;, state: &quot; + JSON.stringify(event.state));</div><div class="line">&#125;;</div><div class="line">history.pushState(&#123;page: 1&#125;, &quot;title 1&quot;, &quot;?page=1&quot;);</div><div class="line">history.pushState(&#123;page: 2&#125;, &quot;title 2&quot;, &quot;?page=2&quot;);</div><div class="line">history.replaceState(&#123;page: 3&#125;, &quot;title 3&quot;, &quot;?page=3&quot;);</div><div class="line">history.back(); // alerts &quot;location: http://example.com/example.html?page=1, state: &#123;&quot;page&quot;:1&#125;&quot;</div><div class="line">history.back(); // alerts &quot;location: http://example.com/example.html, state: null</div><div class="line">history.go(2);  // alerts &quot;location: http://example.com/example.html?page=3, state: &#123;&quot;page&quot;:3&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="不存在纯前端路由"><a href="#不存在纯前端路由" class="headerlink" title="不存在纯前端路由"></a>不存在纯前端路由</h4><p>我们此前所描述的前端路由，建立在已经打开了一个初始页面基础之上，然后在这个页面之内进行页面替换。然而，我们如何进入这个初始页面？仅靠前端路由肯定是力所不及。我们至少要向后端发送一次http请求，接收所需要加载的页面不是吗？</p>
 <p>所以，我们并不能抛弃后端路由部分。这也意味着，我们需要和后端确认各自的分工，哪些url归前端解析，哪些归后台解析。</p>
 
